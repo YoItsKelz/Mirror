@@ -107,5 +107,11 @@ namespace Mirror.Tcp
             }
             return "";
         }
+
+        public override bool Available()
+        {
+            // C#'s built in TCP sockets run everywhere except on WebGL
+            return Application.platform != RuntimePlatform.WebGLPlayer;
+        }
     }
 }
